@@ -1,0 +1,27 @@
+{
+  "name": "real-time-chat",
+  "version": "1.0.0",
+  "description": "Real time chat based on web socket connection.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SvinDzjuba/Real-Time-Chat.git"
+  },
+  "keywords": [
+    "websocket",
+    "nodejs",
+    "chat"
+  ],
+  "author": "https://github.com/SvinDzjuba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SvinDzjuba/Real-Time-Chat/issues"
+  },
+  "homepage": "https://github.com/SvinDzjuba/Real-Time-Chat#readme",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
