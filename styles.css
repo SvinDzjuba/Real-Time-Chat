@@ -85,25 +85,25 @@ h4.card-title {
 }
 
 .ps-container {
-    -ms-touch-action: auto;
-    touch-action: auto;
+    display: flex;
+    flex-direction: column;
     overflow: hidden !important;
-    -ms-overflow-style: none;
+    padding-bottom: 15px;
 }
 
 .media-chat {
-    padding-right: 64px;
+    width: 100%;
+    display: flex;
     margin-bottom: 0;
 }
 
 .media {
-    padding: 16px 12px;
     -webkit-transition: background-color 0.2s linear;
     transition: background-color 0.2s linear;
 }
 
 .media .avatar {
-    flex-shrink: 0;
+    margin-top: 3px;
 }
 
 .avatar {
@@ -120,9 +120,9 @@ h4.card-title {
 }
 
 .media-chat .media-body {
-    -webkit-box-flex: initial;
-    flex: initial;
-    display: table;
+    height: fit-content;
+    position: relative;
+    flex: 1 1;
 }
 
 .media-body {
@@ -161,7 +161,6 @@ h4.card-title {
 }
 
 .media {
-    padding: 16px 12px;
     -webkit-transition: background-color 0.2s linear;
     transition: background-color 0.2s linear;
 }
@@ -190,20 +189,16 @@ h4.card-title {
 }
 
 .media-chat.media-chat-reverse {
-    padding-right: 12px;
-    padding-left: 64px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
     flex-direction: row-reverse;
 }
 
 .media-chat {
-    padding-right: 64px;
     margin-bottom: 0;
 }
 
 .media {
-    padding: 16px 12px;
     -webkit-transition: background-color 0.2s linear;
     transition: background-color 0.2s linear;
 }
@@ -219,6 +214,8 @@ h4.card-title {
     position: relative;
     padding: 6px 8px;
     margin: 4px 0;
+    float: left;
+    clear: left;
     background-color: #f5f6f7;
     border-radius: 3px;
 }
@@ -258,10 +255,7 @@ h4.card-title {
 }
 
 button,
-input,
-optgroup,
-select,
-textarea {
+input {
     font-family: Roboto, sans-serif;
     font-weight: 300;
 }
