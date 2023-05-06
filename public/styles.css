@@ -1,3 +1,13 @@
+body {
+    background-color: #f9f9fa;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
 .card-bordered {
     border: 1px solid #ebebeb;
 }
@@ -10,14 +20,6 @@
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
     -webkit-transition: 0.5s;
     transition: 0.5s;
-}
-
-body {
-    background-color: #f9f9fa;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .card-header:first-child {
@@ -82,14 +84,14 @@ h4.card-title {
 
 .ps-container {
     position: relative;
-}
-
-.ps-container {
+    overflow-y: scroll !important;
+    height: 700px !important;
     display: flex;
     flex-direction: column;
     overflow: hidden !important;
     padding-bottom: 15px;
 }
+
 
 .media-chat {
     width: 100%;
@@ -106,7 +108,7 @@ h4.card-title {
     margin-top: 3px;
 }
 
-.avatar {
+#chat .avatar {
     position: relative;
     display: inline-block;
     width: 36px;
@@ -220,6 +222,17 @@ h4.card-title {
     border-radius: 3px;
 }
 
+.media-body .username {
+    height: fit-content;
+    background-color: transparent !important;
+    font-size: 14px;
+    font-weight: 700 !important;
+    color: #0d6efd !important;
+    font-style: italic;
+    margin: 5px !important;
+    padding: 0 !important;
+}
+
 .border-light {
     border-color: #f1f2f3 !important;
 }
@@ -296,4 +309,103 @@ input {
 
 .text-info {
     color: #48b0f7 !important;
+}
+
+
+/* LOGIN FORM */
+#loginForm {
+    border: 3px solid #f1f1f1;
+}
+
+#loginForm input[type=text],
+#loginForm input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#loginForm .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+#loginForm img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+#loginForm .container {
+    padding: 16px;
+}
+
+#loginForm span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    #loginForm span.psw {
+        display: block;
+        float: none;
+    }
+
+    #loginForm .cancel-btn {
+        width: 100%;
+    }
+}
+
+/* REGISTRATION FORM */
+
+#registerForm .container {
+    padding: 16px;
+    background-color: white;
+}
+
+#registerForm input[type=text],
+#registerForm input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+#registerForm input[type=text]:focus,
+#registerForm input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+#registerForm hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+#registerForm button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+#registerForm button:hover {
+    opacity: 1;
+}
+
+#registerForm a {
+    color: dodgerblue;
+}
+
+#registerForm .signin {
+    background-color: #f1f1f1;
+    text-align: center;
 }
