@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+.invisible {
+    display: none !important;
+}
+
 .card-bordered {
     border: 1px solid #ebebeb;
 }

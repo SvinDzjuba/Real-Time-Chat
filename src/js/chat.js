@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://localhost:3000');
+const ws = new WebSocket('ws://localhost:1234/chat');
 
 ws.addEventListener('message', (e) => {
     const data = JSON.parse(e.data);

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Real time chat based on web socket connection.",
   "main": "index.js",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,24 @@
   "homepage": "https://github.com/SvinDzjuba/Real-Time-Chat#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "node-sessionstorage": "^1.0.0",
-    "nodemon": "^2.0.22",
     "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^5.7.1",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "parcel": "^2.8.3",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "path-browserify": "^1.0.1",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10",
+    "punycode": "^1.4.1",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
+    "util": "^0.12.5"
   }
 }
