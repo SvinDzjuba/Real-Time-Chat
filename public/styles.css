@@ -8,10 +8,6 @@ body {
     margin: 0;
 }
 
-.invisible {
-    display: none !important;
-}
-
 .card-bordered {
     border: 1px solid #ebebeb;
 }
@@ -19,7 +15,6 @@ body {
 .card {
     border: 0;
     border-radius: 0px;
-    margin-bottom: 30px;
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
     -webkit-transition: 0.5s;
@@ -88,14 +83,14 @@ h4.card-title {
 
 .ps-container {
     position: relative;
-    overflow-y: scroll !important;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: 700px !important;
     display: flex;
     flex-direction: column;
-    overflow: hidden !important;
-    padding-bottom: 15px;
+    /* overflow: hidden !important; */
+    padding: 15px 0;
 }
-
 
 .media-chat {
     width: 100%;
@@ -210,13 +205,16 @@ h4.card-title {
 }
 
 .media-chat.media-chat-reverse .media-body p {
+    max-width: 95%;
     float: right;
     clear: right;
     background-color: #48b0f7;
     color: #fff;
+    word-wrap: break-word;
 }
 
 .media-chat .media-body p {
+    max-width: 95%;
     position: relative;
     padding: 6px 8px;
     margin: 4px 0;
@@ -224,6 +222,7 @@ h4.card-title {
     clear: left;
     background-color: #f5f6f7;
     border-radius: 3px;
+    word-wrap: break-word;
 }
 
 .media-body .username {
