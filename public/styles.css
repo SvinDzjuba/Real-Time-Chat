@@ -120,14 +120,23 @@ h4.card-title {
     text-transform: uppercase;
 }
 
-.media-chat .media-body {
+.media-body:not(.media-chat-reverse) {
+    min-width: 0;
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    flex: 1 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.media-chat-reverse .media-body {
+    min-width: 0;
     height: fit-content;
     position: relative;
     flex: 1 1;
-}
-
-.media-body {
-    min-width: 0;
+    width: 95%;
+    flex-direction: row-reverse;
 }
 
 .media-chat .media-body p {
@@ -145,9 +154,15 @@ h4.card-title {
 }
 
 .media-chat .media-body p.meta {
+    width: 100%;
     background-color: transparent !important;
     padding: 0;
     opacity: 0.8;
+    text-align: right !important;
+}
+
+.media-chat:not(.media-chat-reverse) .media-body p.meta {
+    text-align: left !important;
 }
 
 .media-meta-day {
@@ -204,7 +219,7 @@ h4.card-title {
     transition: background-color 0.2s linear;
 }
 
-.media-chat.media-chat-reverse .media-body p {
+.media-chat.media-chat-reverse .media-body p:not(.meta) {
     max-width: 95%;
     float: right;
     clear: right;
@@ -226,14 +241,20 @@ h4.card-title {
 }
 
 .media-body .username {
+    width: 100%;
     height: fit-content;
     background-color: transparent !important;
     font-size: 14px;
     font-weight: 700 !important;
-    color: #0d6efd !important;
+    color: #71aaeb !important;
     font-style: italic;
     margin: 5px !important;
     padding: 0 !important;
+    text-decoration: none !important;
+}
+
+.media-body .username:hover {
+    text-decoration: underline !important;
 }
 
 .border-light {

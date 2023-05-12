@@ -40,10 +40,11 @@ function addMessage(message) {
     nodeTime.classList.add('meta');
 
     if (message.type === 'answer') {
-        const nodeUser = document.createElement('p');
+        const nodeUser = document.createElement('a');
         const user = JSON.parse(message.user);
         nodeUser.innerHTML = user.username;
         nodeUser.classList.add('username');
+        nodeUser.href = `/user/${user.username}`;
 
         // Append all DOM elements
         node.innerHTML = message.data;
