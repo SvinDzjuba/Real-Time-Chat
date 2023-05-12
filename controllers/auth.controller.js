@@ -14,7 +14,7 @@ exports.login = (req, res) => {
         }
         bcrypt.compare(req.body.psw, user.password, (err, result) => {
             if (err) {
-                res.status(400).send({ message: 'Cannot decrypt!' });
+                res.render('login', { error: 'Cannot decrypt!' });
                 return;
             }
             if (!result) {
@@ -23,19 +23,15 @@ exports.login = (req, res) => {
             }
             session.setItem('user', {
                 username: user.username,
+                avatar: user.avatar
             });
             res.redirect('/');
         });
     }, { onlyOnce: true });
-
-    session.setItem('user', {
-        username: req.body.uname,
-    });
-    res.redirect('/');
 };
 exports.register = (req, res) => {
     const { set, push } = require('firebase/database');
-    const { uploadBytes, getDownloadURL, getMetadata } = require('firebase/storage');
+    const { uploadBytes, getDownloadURL } = require('firebase/storage');
 
     if (req.body.psw !== req.body.pswRepeat) {
         res.render('registration', { error: 'Passwords do not match!' });
@@ -55,7 +51,7 @@ exports.register = (req, res) => {
                             const { ref } = require("firebase/database");
                             bcrypt.hash(req.body.psw, salt, (err, hash) => {
                                 if (err) {
-                                    res.status(400).send({ message: 'Cannot encrypt!' });
+                                    res.render('registration', { error: 'Cannot encrypt!' });
                                     return;
                                 }
                                 // Send to firebase database

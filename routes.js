@@ -1,3 +1,4 @@
+const session = require('node-sessionstorage');
 const chatController = require('./controllers/chat.controller');
 const authController = require('./controllers/auth.controller');
 

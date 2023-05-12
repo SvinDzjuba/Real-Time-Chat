@@ -19,16 +19,19 @@
         </div>
 
         <div class="container">
+            <% if( typeof(error) != 'undefined') { %>
+                <div id="loginError" class="alert alert-danger">
+                    <p class="text-center mb-0"><%= error %></p>
+                </div>
+            <% } %>
+
             <label for="uname"><b>Username</b></label>
-            <input class="form-control" type="text" placeholder="Enter Username" name="uname" required>
+            <input class="form-control" type="text" placeholder="Enter Username" name="uname" required autofocus>
 
             <label for="psw"><b>Password</b></label>
             <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
 
             <button type="submit" class="btn btn-success w-100 py-2 my-2">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">

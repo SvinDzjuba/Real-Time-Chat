@@ -19,7 +19,7 @@
             <hr>
 
             <label for="uname"><b>Username</b></label>
-            <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+            <input type="text" class="form-control" placeholder="Enter Username" name="uname" required autofocus>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
@@ -30,14 +30,18 @@
             <label for="avatar" class="pb-1"><b>Upload avatar</b></label>
             <input type="file" class="form-control" name="avatar" required>
 
-            <hr>
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <hr class="mb-2">
+            <% if( typeof(error) != 'undefined') { %>
+                <div id="loginError" class="alert alert-danger">
+                    <p class="text-center mb-0"><%= error %></p>
+                </div>
+            <% } %>
 
             <button type="submit" class="btn btn-success w-100 py-2">Register</button>
         </div>
 
         <div class="container signin">
-            <p>Already have an account? <a href="/login">Sign in</a>.</p>
+            <p class="mb-0">Already have an account? <a href="/login">Sign in</a>.</p>
         </div>
     </form>
 

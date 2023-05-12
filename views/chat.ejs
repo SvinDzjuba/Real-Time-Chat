@@ -14,7 +14,11 @@
 
 <body>
     <div id="chat" class="row container d-flex justify-content-center">
-        <i class="d-none user-data" data-uname="<%= user.username %>" data-psw="<%= user.password %>"></i>
+        <i class="d-none user-data" 
+            data-uname="<%= user.username %>" 
+            data-psw="<%= user.password %>" 
+            data-avatar="<%= user.avatar %>">
+        </i>
         <div class="col-md-5">
             <div class="card card-bordered">
                 <div class="card-header">
@@ -45,9 +49,11 @@
     <script>
         const uname = document.querySelector('.user-data').dataset.uname;
         const psw = document.querySelector('.user-data').dataset.psw;
+        const avatar = document.querySelector('.user-data').dataset.avatar;
         const user = {
             username: uname,
-            password: psw
+            password: psw,
+            avatar: avatar,
         };
         sessionStorage.setItem('user', JSON.stringify(user));
     </script>

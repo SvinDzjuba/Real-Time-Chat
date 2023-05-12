@@ -20,7 +20,7 @@ function sendMessage() {
     const messageEntity = {
         type: 'message',
         user: user,
-        data: message.value
+        data: message.value,
     };
     ws.send(JSON.stringify(messageEntity));
     addMessage(messageEntity);
@@ -50,7 +50,7 @@ function addMessage(message) {
         messageBody.appendChild(nodeUser);
         messageBody.appendChild(node);
         messageBody.appendChild(nodeTime);
-        container.innerHTML = `<img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">`;
+        container.innerHTML = `<img class="avatar" src="${user.avatar}" alt="${user.username}">`;
         container.appendChild(messageBody);
         chat.appendChild(container);
 
