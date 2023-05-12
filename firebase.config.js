@@ -1,5 +1,6 @@
 const { initializeApp } = require("firebase/app");
 const { getDatabase } = require("firebase/database");
+const { getStorage, ref } = require("firebase/storage");
 
 // Web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -17,3 +18,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const storage = getStorage(app);
+const avatarsRef = ref(storage, 'gs://chat-67597.appspot.com/avatars');
+
+module.exports.db = db;
+module.exports.storage = storage;
+module.exports.avatarsRef = avatarsRef;

@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
 const { WebSocketServer } = require('ws');
 const http = require('http');
+const fileUpload = require('express-fileupload');
 const express = require('express');
 
 // Configuring express server
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload());
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
