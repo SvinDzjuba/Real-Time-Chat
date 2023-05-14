@@ -19,7 +19,7 @@ app.set('views', 'views');
 // 24 hours
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    secret: "thisismysecrctekeyfdgfduugh234jkhsdkfjhk2j3",
     saveUninitialized: true,
     cookie: { maxAge: oneDay },
     resave: false
@@ -27,18 +27,10 @@ app.use(session({
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
+const { onMessage } = require('./controllers/socket.controller');
 wss.on('connection', function connection(socket) {
-    socket.on('message', function message(message) {
-        const data = JSON.parse(message);
-        if (data.type === 'message') {
-            wss.clients.forEach(client => {
-                if (client !== socket && client.readyState === WebSocket.OPEN) {
-                    client.send(JSON.stringify(
-                        { type: 'answer', data: data.data, user: data.user }
-                    ));
-                }
-            })
-        }
+    socket.on('message', function (message) {
+        onMessage(message, socket, wss);
     });
 });
 

@@ -12,33 +12,34 @@
 </head>
 
 <body>
-
-    <form action="/login" method="POST" id="loginForm">
-        <div class="imgcontainer">
-            <img src="./img/img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-            <% if( typeof(error) != 'undefined') { %>
-                <div id="loginError" class="alert alert-danger">
-                    <p class="text-center mb-0"><%= error %></p>
-                </div>
-            <% } %>
-
-            <label for="uname"><b>Username</b></label>
-            <input class="form-control" type="text" placeholder="Enter Username" name="uname" required autofocus>
-
-            <label for="psw"><b>Password</b></label>
-            <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit" class="btn btn-success w-100 py-2 my-2">Login</button>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancel-btn btn btn-outline-danger">Cancel</button>
-            <span class="psw">Still don't have an account? <a href="/register">Register</a></span>
-        </div>
-    </form>
+    <div id="wrapper">
+        <form action="/login" method="POST" id="loginForm">
+            <div class="imgcontainer">
+                <img src="./img/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+    
+            <div class="container">
+                <% if( typeof(error) != 'undefined') { %>
+                    <div id="loginError" class="alert alert-danger">
+                        <p class="text-center mb-0"><%= error %></p>
+                    </div>
+                <% } %>
+    
+                <label for="uname"><b>Username</b></label>
+                <input class="form-control" type="text" placeholder="Enter Username" name="uname" required autofocus>
+    
+                <label for="psw"><b>Password</b></label>
+                <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+    
+                <button type="submit" class="btn btn-success w-100 py-2 my-2">Login</button>
+            </div>
+    
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancel-btn btn btn-outline-danger">Cancel</button>
+                <span class="psw">Still don't have an account? <a href="/register">Register</a></span>
+            </div>
+        </form>
+    </div>
 
     <!-- Scripts -->
     <script>

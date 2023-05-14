@@ -2,7 +2,8 @@ const chatController = require('./controllers/chat.controller');
 const authController = require('./controllers/auth.controller');
 
 module.exports = function (app) {
-    app.get('/', chatController.chat);
+    app.get('/', chatController.messenger);
+    app.get('/chat', chatController.chat);
 
     app.get('/login', (req, res) => {
         res.render('login');
