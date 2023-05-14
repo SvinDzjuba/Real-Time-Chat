@@ -1,17 +1,29 @@
 const WebSocket = require('ws');
 const { WebSocketServer } = require('ws');
 const http = require('http');
-const fileUpload = require('express-fileupload');
 const express = require('express');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
 
 // Configuring express server
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+// 24 hours
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(session({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized: true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });

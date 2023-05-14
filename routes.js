@@ -1,4 +1,3 @@
-const session = require('node-sessionstorage');
 const chatController = require('./controllers/chat.controller');
 const authController = require('./controllers/auth.controller');
 
@@ -11,7 +10,7 @@ module.exports = function (app) {
     app.post('/login', authController.login);
 
     app.get('/logout', (req, res) => {
-        session.removeItem('user');
+        req.session.destroy();
         res.redirect('/login');
     });
 

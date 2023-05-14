@@ -1,6 +1,5 @@
-const session = require('node-sessionstorage');
 const bcrypt = require('bcryptjs');
-const { db, storage, avatarsRef } = require('../firebase.config');;
+const { db, avatarsRef } = require('../firebase.config');;
 
 exports.login = (req, res) => {
     const { ref, onValue } = require('firebase/database');
@@ -21,10 +20,9 @@ exports.login = (req, res) => {
                 res.render('login', { error: 'Invalid username or password!' });
                 return;
             }
-            session.setItem('user', {
-                username: user.username,
-                avatar: user.avatar
-            });
+            const session = req.session;
+            session.username = user.username;
+            session.avatar = user.avatar;
             res.redirect('/');
         });
     }, { onlyOnce: true });

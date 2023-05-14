@@ -14,16 +14,13 @@
 
 <body>
     <div id="chat" class="row container d-flex justify-content-center">
-        <i class="d-none user-data" 
-            data-uname="<%= user.username %>" 
-            data-psw="<%= user.password %>" 
-            data-avatar="<%= user.avatar %>">
+        <i class="d-none user-data" data-uname="<%= user.username %>" data-avatar="<%= user.avatar %>">
         </i>
         <div class="col-md-5">
             <div class="card card-bordered">
                 <div class="card-header">
                     <h4 class="card-title"><strong>Chat</strong></h4>
-                    <a class="btn btn-xs btn-secondary" href="/logout" data-abc="true">Logout</a>
+                    <a class="btn btn-xs btn-secondary" href="/logout" id="logout" data-abc="true">Logout</a>
                 </div>
 
                 <div class="ps-container ps-theme-default ps-active-y" id="chat-content"></div>
@@ -48,14 +45,15 @@
     <script src="./chat.js"></script>
     <script>
         const uname = document.querySelector('.user-data').dataset.uname;
-        const psw = document.querySelector('.user-data').dataset.psw;
         const avatar = document.querySelector('.user-data').dataset.avatar;
         const user = {
             username: uname,
-            password: psw,
             avatar: avatar,
         };
         sessionStorage.setItem('user', JSON.stringify(user));
+        document.querySelector('#logout').addEventListener('click', (e) => {
+            sessionStorage.removeItem('user');
+        });
     </script>
     <!-- Bootstrap & JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

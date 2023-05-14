@@ -1,9 +1,13 @@
-const session = require('node-sessionstorage');
-
 exports.chat = (req, res) => {
-    if (session.getItem('user') === undefined || session.getItem('user') === null) {
+    const session = req.session;
+    if (session.username === undefined || session.username === null) {
         res.redirect('/login');
     } else {
-        res.render('chat', { user: session.getItem('user') });
+        res.render('chat', {
+            user: {
+                username: session.username,
+                avatar: session.avatar
+            }
+        });
     }
 };
